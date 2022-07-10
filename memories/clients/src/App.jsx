@@ -1,21 +1,53 @@
-import { Container,AppBar,Typography,Grow,Grid } from "@mui/material";
+import { Container,AppBar,Typography,Grow,Grid, styled } from "@mui/material";
 import Form from "./components/Form/Form";
-import {Posts} from "./components/Posts/Posts";
+import Posts from "./components/Posts/Posts";
 import memories from './images/mem.png'
+import useStyles from './styles'
+import { useDispatch } from "react-redux";
+import {getPosts} from './actions/posts'
+import { useEffect } from "react";
+
+// image within appbar
+const Img = styled("img")(({ theme }) => ({
+ marginLeft:"15px",
+ width:"60px",
+})); 
+// text within appbar
+const Text = styled("div")(({ theme }) => ({
+    color:"cyan",
+    ...theme.typography.h2,
+    alignItems:"center"
+   })); 
+//  appbar
+  const Appbar = styled(AppBar)(({ theme }) => ({
+    borderRadius:15,
+    margin:"30px 0",
+    display:"flex",
+    flexDirection:"row",
+    justifyContent:"center",
+    alignItems:"center",
+    postion:'static',
+    background:"inherit",
+})); 
 
 function App(){
+    const dispatch = useDispatch();
+
+    useEffect(()=>{
+        dispatch(getPosts());
+    },[dispatch])
     return (
-        <Container >
-            <AppBar postion='static' color='inherit'>
-                <Typography variant="h2" align="center">Memories</Typography>
-                <img src={memories} alt="memories" height="60"/>
-            </AppBar>
-            <Grow in>
+        <Container maxWidth="lg">
+            <Appbar>
+                <Text >Memories</Text>
+                <Img src={memories} alt="memories" />
+            </Appbar>
+            <Grow in sx={{marginTop:"100px"}}>
                 <Container>
-                    <Grid container justify="space-between" alignItems="stretch" spacing={2}>
-                        <Grid item xs={12} sm={7}>
+                    <Grid container justify="space-between" alignItems="stretch" spacing={4}>
+                        <Grid item xs={12} sm={7} >
                             <Posts />
-                        </Grid>
+                        </Grid>x
                         <Grid item xs={12} sm={4}>
                             <Form />
                         </Grid>
