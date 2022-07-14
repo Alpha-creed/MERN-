@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Post() {
+const Post=()=> {
   return (
          <h1>Post</h1>
   )
