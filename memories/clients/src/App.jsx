@@ -5,7 +5,7 @@ import memories from './images/mem.png'
 import useStyles from './styles'
 import { useDispatch } from "react-redux";
 import {getPosts} from './actions/posts'
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { fetchPosts } from "./api";
 import React from 'react'
 
@@ -16,7 +16,7 @@ const Img = styled("img")(({ theme }) => ({
 })); 
 // text within appbar
 const Text = styled("div")(({ theme }) => ({
-    color:"cyan",
+    color:"white",
     ...theme.typography.h2,
     alignItems:"center"
    })); 
@@ -34,6 +34,7 @@ const Text = styled("div")(({ theme }) => ({
 
 const App =()=> {
     const dispatch = useDispatch();
+    const [currentId,setCurrentId] = useState(null)
 
     useEffect(()=>{
         dispatch(getPosts());
@@ -49,10 +50,10 @@ const App =()=> {
                 <Container>
                     <Grid container justify="space-between" alignItems="stretch" spacing={4}>
                         <Grid item xs={12} sm={7} >
-                            <Posts />
+                            <Posts setCurrentId={setCurrentId}/>
                         </Grid>
                         <Grid item xs={12} sm={4}>
-                            <Forms />
+                            <Forms currentId={currentId} setCurrentId={setCurrentId}/>
                         </Grid>
                     </Grid>
                 </Container>

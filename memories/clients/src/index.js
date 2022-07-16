@@ -9,6 +9,7 @@ import {Provider} from 'react-redux'
 import thunk from 'redux-thunk'
 import { configureStore } from '@reduxjs/toolkit'
 import reducers from './reducers'
+import './index.css'
 
 // const store=createStore(reducers, compose(applyMiddleware(thunk)))
 const store = configureStore({reducer:reducers})
