@@ -3,7 +3,7 @@ const mongoose = require('mongoose')
 const signUpTemp = new mongoose.Schema({
     fullName: {
         type: String,
-        required: true,
+        // required: true,
     },
     usename: {
         type: String,
