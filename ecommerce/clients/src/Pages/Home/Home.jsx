@@ -1,22 +1,10 @@
 import React from 'react';
 import {Box, Button, styled, Typography} from '@mui/material';
+import Intro from '../../Components/Designs/IntroImg';
+import ImgText from '../../Components/Designs/ImgText';
+import TextImg from '../../Components/Designs/TextImg';
 
 export default function Home() {
-    //Intro image
-    const IntroImg = styled("img")(({ theme }) => ({
-        [theme.breakpoints.down('md')]: {
-            width:850,
-            height:300
-          },
-          [theme.breakpoints.up('md')]: {
-            width:1600,
-            height:500
-          },
-          [theme.breakpoints.down('sm')]: {
-            width:370,
-            height:300
-          },
-      }));
       //images of descriptive stuffs
       const Img = styled("img")(({ theme }) => ({
         [theme.breakpoints.down('md')]: {
@@ -32,6 +20,7 @@ export default function Home() {
             height:300
           },
       }));
+      //customization for image for customer reviews
       const ImgRev = styled("img")(({ theme }) => ({
         [theme.breakpoints.down('md')]: {
             width:850,
@@ -46,43 +35,7 @@ export default function Home() {
             height:300
           },
       }));
-      //container of content within image
-      const Imgstuf= styled("div")(({ theme }) => ({
-        backgroundColor: "",
-        position:"absolute",
-    
-        [theme.breakpoints.down('md')]: {
-            top:"50%",
-            left:"50%",
-            transform:"translate(-50%, -50%)",
-          },
-          [theme.breakpoints.up('md')]: {
-            top:"50%",
-            left:"50%",
-            transform:"translate(-50%, -50%)",
-          },
-          [theme.breakpoints.down('sm')]: {
-            top:"45%",
-            left:"50%",
-            transform:"translate(-50%, -50%)",
-            
-        },
-      }));
-      //text of content within image
-      const Typo= styled(Typography)(({ theme }) => ({
-        color:"white",
-        [theme.breakpoints.down('md')]: {
-            padding:"10px 0"
-          },
-          [theme.breakpoints.up('md')]: {
-            padding:"30px 0"
-          },
-          [theme.breakpoints.down('sm')]: {
-            padding:"15px 0"
-
-          },
-      }));
-      //Text for heading
+      
       const HeadTypo=styled(Typography)(({ theme }) => ({
         fontWeight:"1000",
 
@@ -147,52 +100,14 @@ export default function Home() {
       
   return (
     <Box>
-        {/* Intro pic with content */}
-        <Box sx={{position:"relative"}}>
-        <IntroImg src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fnutramanix.com%2Fwp-content%2Fuploads%2F2018%2F10%2Fshutterstock_762211207.jpg" alt="Man drinking water"/>
-        <Imgstuf>
-            <Typography variant='h4' fontWeight="1000" color="white" >
-                Mineral Water & Drinks
-            </Typography>
-            <Typo variant='h5'sx={{padding:"20px 0"}} fontWeight="500" color="white">
-                Delivered at your doorstep
-            </Typo>
-            <Button>
-                Shop
-            </Button>
-        </Imgstuf>
-        </Box>
+        {/* Intro pic with content components*/}
+        <Intro img={`https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fnutramanix.com%2Fwp-content%2Fuploads%2F2018%2F10%2Fshutterstock_762211207.jpg`} color={`white`} details={`Mineral Water & Drinks`} motor={`Delivered at your doorstep`} product={"Shop"}/>
         {/* images and thier description */}
         <Box>
-            <ConDes>
-            <Box >
-            <HeadTypo variant='h4' fontWeight="500">
-                        Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                    </HeadTypo>
-                    <TextTypo variant='body'>
-                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sunt earum nobis soluta deserunt nisi tempora esse fugit dolores libero vitae commodi nesciunt, quaerat animi tenetur id nemo ut harum. Quibusdam?
-                    </TextTypo>
-                </Box>
-                <Box>
-                    
-                    <Img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.ytimg.com%2Fvi%2FYogIv06lZFw%2Fmaxresdefault.jpg" alt="Rush Energy Drink"/>
-                </Box>
-              
-            </ConDes>
-            <ConDes>
-                <Box>
-                  <Img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi1.wp.com%2Fafiaghana.com%2Fwp-content%2Fuploads%2F2020%2F11%2Fmalta_ghana.jpg%3Fresize%3D503%252C586%26ssl%3D1&f=1&nofb=1" alt="Malt can"/>  
-                </Box>
-                <Box>
-                <HeadTypo variant='h4'>
-                        Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                    </HeadTypo>
-                    <TextTypo variant='body'>
-                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sunt earum nobis soluta deserunt nisi tempora esse fugit dolores libero vitae commodi nesciunt, quaerat animi tenetur id nemo ut harum. Quibusdam?
-                    </TextTypo>
-                </Box>
-            </ConDes>
-            <ConDes>
+            <TextImg imgTitle={"Rush energy drink"}head={"Lorem ipsum, dolor sit amet consectetur adipisicing elit."} content={"Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sunt earum nobis soluta deserunt nisi tempora esse fugit dolores libero vitae commodi nesciunt, quaerat animi tenetur id nemo ut harum. Quibusdam?"} img={`https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.ytimg.com%2Fvi%2FYogIv06lZFw%2Fmaxresdefault.jpg`}/>
+            <ImgText img={`https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi1.wp.com%2Fafiaghana.com%2Fwp-content%2Fuploads%2F2020%2F11%2Fmalta_ghana.jpg%3Fresize%3D503%252C586%26ssl%3D1&f=1&nofb=1`} imgTitle={"Malt can"} head={"Lorem ipsum, dolor sit amet consectetur adipisicing elit."}
+                content={"Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sunt earum nobis soluta deserunt nisi tempora esse fugit dolores libero vitae commodi nesciunt, quaerat animi tenetur id nemo ut harum. Quibusdam?"}/>
+<ConDes>
                 <Box>
                     <Img src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.multipacgh.com%2Fwp-content%2Fuploads%2F2015%2F11%2F15.png&f=1&nofb=1" alt=""/>
                 </Box>
@@ -236,15 +151,7 @@ export default function Home() {
                 </Box>
             </ConRev>
         </Box>
-
-        <Box sx={{position:"relative"}}>
-        <IntroImg src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftwellium.com%2Fwp-content%2Fuploads%2F2019%2F04%2Fbbb-960x600.jpg&f=1&nofb=1" alt="Don simon"/>
-        <Imgstuf>
-            <Button >
-                Shop
-            </Button>
-        </Imgstuf>
-        </Box>
+<Intro img={`https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftwellium.com%2Fwp-content%2Fuploads%2F2019%2F04%2Fbbb-960x600.jpg&f=1&nofb=1`} product={`Shop`} color={"white"}/>
     </Box>
   )
 }
